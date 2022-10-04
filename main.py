@@ -1,13 +1,13 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template
 from flask_wtf import FlaskForm
 from wtforms import SubmitField,StringField,PasswordField
 """For wtforms.validators.Email becomes active on its functionality. Validates an email address. 
 Requires email_validator package to be installed. For ex: pip install wtforms[email]."""
-from wtforms.validators import DataRequired, Email, Length
+from wtforms.validators import DataRequired, Length
 from flask_bootstrap import Bootstrap
 
 class LoginForm(FlaskForm):
-    email = StringField(label='Email', validators=[DataRequired(), Email()])
+    email = StringField(label='Email', validators=[DataRequired()])
     password = PasswordField(label='Password', validators={DataRequired(),
                                                            Length(min=8, max=20,
                                                                   message="Password need to be minimum 8 characters")})
